@@ -74,6 +74,17 @@ const Cart = () => {
                             <div className="col-lg-5 col-md-6">
                               <p>
                                 <strong>{item.title}</strong>
+                                <button
+                                  className="btn btn-danger btn-sm ms-3"
+                                  onClick={() =>
+                                    dispatch(
+                                      delCart({ ...item, qty: item.qty })
+                                    )
+                                  }
+                                  style={{ verticalAlign: "middle" }}
+                                >
+                                  Remove
+                                </button>
                               </p>
                               {/* <p>Color: blue</p>
                               <p>Size: M</p> */}
@@ -129,7 +140,8 @@ const Cart = () => {
                   <div className="card-body">
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                        Products ({totalItems})<span>${Math.round(subtotal)}</span>
+                        Products ({totalItems})
+                        <span>${Math.round(subtotal)}</span>
                       </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center px-0">
                         Shipping
