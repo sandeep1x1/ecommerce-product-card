@@ -40,6 +40,17 @@
 - The implementation is ready for demo and review.
 - All requirements from the test have been met, with extra attention to UX and code quality.
 
+## Deployment Note / Error Log
+- **Issue:** When running `npm install --legacy-peer-deps && npm run build` in Windows PowerShell, you may see:
+  > The token '&&' is not a valid statement separator in this version.
+- **Reason:** PowerShell does not support '&&' for command chaining (unlike Unix shells or CMD).
+- **Solution:**
+  - For local development in PowerShell, use `;` instead: `npm install --legacy-peer-deps; npm run build`
+  - Or, run each command separately:
+    1. `npm install --legacy-peer-deps`
+    2. `npm run build`
+  - For Vercel deployment, the `&&` operator in package.json is correct and works as expected.
+
 ---
 
 **Thank you for the opportunity!**
